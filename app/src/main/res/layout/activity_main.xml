@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#09c">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="#fff"
+                android:text="@string/justin_vuu"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="#f00">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:text="@string/name" />
+                <EditText
+                    android:id="@+id/aName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:textSize="20sp"
+                    android:maxLength="7"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:text="@string/dept" />
+                <EditText
+                    android:id="@+id/aDept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:textSize="20sp"
+                    android:maxLength="7"
+                    android:hint="@string/dept"
+                    android:inputType="textPersonName" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:text="@string/year" />
+                <EditText
+                    android:id="@+id/aYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:textSize="20sp"
+                    android:maxLength="4"
+                    android:hint="@string/year"
+                    android:inputType="number" />
+                <Button
+                    android:id="@+id/btn_aAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textSize="20sp"
+                    android:text="@string/add"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="#FF0">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:text="@string/name" />
+                <EditText
+                    android:id="@+id/bName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:textSize="20sp"
+                    android:maxLength="7"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:text="@string/dept" />
+                <EditText
+                    android:id="@+id/bDept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:textSize="20sp"
+                    android:maxLength="7"
+                    android:hint="@string/dept"
+                    android:inputType="textPersonName" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:text="@string/year" />
+                <EditText
+                    android:id="@+id/bYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:textSize="20sp"
+                    android:maxLength="4"
+                    android:hint="@string/year"
+                    android:inputType="number" />
+                <Button
+                    android:id="@+id/btn_bAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textSize="20sp"
+                    android:text="@string/add"/>
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/view"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

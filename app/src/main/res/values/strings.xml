@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MAPLab7</string>
+    <string name="justin_vuu">Justin Vuu</string>
+    <string name="name">NAME</string>
+    <string name="dept">DEPT</string>
+    <string name="year">YEAR</string>
+    <string name="add">Add</string>
+    <string name="view">View</string>
+</resources>
