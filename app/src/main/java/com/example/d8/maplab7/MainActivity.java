@@ -2,11 +2,20 @@ package com.example.d8.maplab7;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         //Create database and tables
         db = openOrCreateDatabase("Staff", 0,null);
         db.execSQL("CREATE TABLE IF NOT EXISTS 'EmployeeA'"
-            + "(Name CHAR(7), Dept CHAR(7), YEAR CHAR(4));");
+            + "(Name CHAR(7), Dept CHAR(7), Year CHAR(4));");
         db.execSQL("CREATE TABLE IF NOT EXISTS 'EmployeeB'"
-                + "(Name CHAR(7), Dept CHAR(7), YEAR CHAR(4));");
+            + "(Name CHAR(7), Dept CHAR(7), Year CHAR(4));");
 
         //Add employee in left form
         btn_aAdd = findViewById(R.id.btn_aAdd);
@@ -42,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 String n = empName.getText().toString();
                 String d = empDept.getText().toString();
                 String y = empYear.getText().toString();
-                addEmployee("EmployeeA", n, d, y);
+                addEmployee("EmployeeA", n, d, y, empName, empDept, empYear);
             }
         });
 
@@ -58,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 String n = empName.getText().toString();
                 String d = empDept.getText().toString();
                 String y = empYear.getText().toString();
-                addEmployee("EmployeeB", n, d, y);
+                addEmployee("EmployeeB", n, d, y, empName, empDept, empYear);
             }
         });
 
@@ -67,18 +76,34 @@ public class MainActivity extends AppCompatActivity {
         btn_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent list;
+                Intent list = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(list);
             }
         });
     }
 
     //Add employee function
-    private void addEmployee(String table, String name, String dept, String year){
-        db.execSQL("INSERT INTO "
-            + table
-            + " (Name, Dept, Year) VALUES('"
-            + name + "','"
-            + dept + "','"
-            + year + "');");
+    private void addEmployee(String table, String name, String dept, String year, EditText empName, EditText empDept, EditText empYear){
+        Log.d("Name", name);
+        Log.d("Dept", dept);
+        Log.d("Year", year);
+
+        if(name.matches("") || dept.matches("") || year.matches("")) {
+            Toast.makeText(this, "Incomplete", Toast.LENGTH_SHORT).show();
+        }else {
+            //CompiledStatement used to prevent SQL injection.
+            //There is also PreparedStatement, which is used to online databases
+            SQLiteStatement stmt = db.compileStatement("INSERT INTO "
+                        + table
+                        + " (Name, Dept, Year) VALUES(?, ?, ?)");
+            stmt.bindString(1, name);
+            stmt.bindString(2, dept);
+            stmt.bindString(3, year);
+            stmt.execute();
+
+            empName.setText("");
+            empDept.setText("");
+            empYear.setText("");
+        }
     }
 }
